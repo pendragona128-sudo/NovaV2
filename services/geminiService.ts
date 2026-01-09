@@ -1,13 +1,11 @@
 import { GoogleGenAI, Chat, GenerateContentResponse } from "@google/genai";
 import { BottleneckCategory } from "../types";
 
-const API_KEY = process.env.API_KEY || '';
-
 let client: GoogleGenAI | null = null;
 
 const getClient = (): GoogleGenAI => {
   if (!client) {
-    client = new GoogleGenAI({ apiKey: API_KEY });
+    client = new GoogleGenAI({ apiKey: process.env.API_KEY });
   }
   return client;
 };
